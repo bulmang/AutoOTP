@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("log_status") var log_status = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView{
+            if log_status{
+                Text("Home")
+                    .navigationTitle("Home")
+            }
+            else{
+                Login()
+            }
         }
-        .padding()
     }
 }
 
